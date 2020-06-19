@@ -34,7 +34,8 @@ namespace SalesTax.Shopping
         {
             if (productItems.ContainsKey(name))
             {
-                Product productItem = productItems[name].GetFactory().CreateProduct(name, price, quantity, imported);
+                ProductAttributes pAttributes = new ProductAttributes(name, price, quantity, imported);
+                Product productItem = productItems[name].GetFactory().CreateProduct(pAttributes);
                 return productItem;
             }
             else

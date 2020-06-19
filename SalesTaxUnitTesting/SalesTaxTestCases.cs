@@ -93,7 +93,8 @@ namespace SalesTaxUnitTesting
         public void IsBookFactoryCreateBookProduct()
         {
             ProductFactory pFactory = new BookFactory();
-            Product book = pFactory.CreateProduct("book", 20, 2, true);
+            ProductAttributes pAttr = new ProductAttributes("book", 20, 2, true);
+            Product book = pFactory.CreateProduct(pAttr);
 
             Assert.IsNotNull(book);
             Assert.IsInstanceOfType(book, typeof(BookProduct));           

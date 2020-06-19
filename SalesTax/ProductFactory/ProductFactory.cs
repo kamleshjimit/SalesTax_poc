@@ -8,6 +8,6 @@ namespace SalesTax.ProductFactories
     public abstract class ProductFactory
     {
         public abstract Product CreateProduct(
-            string name, double price, int quantity, bool IsImported);
+            ProductAttributes productAttributes);
     }
 }

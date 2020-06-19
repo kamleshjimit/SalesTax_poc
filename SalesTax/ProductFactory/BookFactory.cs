@@ -7,10 +7,9 @@ namespace SalesTax.ProductFactories
 {
     public class BookFactory : ProductFactory
     {
-        public override Product CreateProduct(
-            string name, double price, int quantity, bool IsImported)
+        public override Product CreateProduct(ProductAttributes productAttributes)
         {
-            return new BookProduct(name, price, quantity, IsImported);
+            return new BookProduct(productAttributes);
         }
     }
 }

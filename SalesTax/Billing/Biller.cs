@@ -21,8 +21,8 @@ namespace SalesTax.Billing
             foreach (Product p in productList)
             {
                 double productTax = taxCalculator.CalculateTax(
-                    p.Price, p.IsImported, p.GetTaxValue());
-                p.SalesTax = Truncate(productTax);
+                    p.PAttributes.Price, p.PAttributes.IsImported, p.GetTaxValue());
+                p.PAttributes.SalesTax = Truncate(productTax);
             }
         }
                 
@@ -30,7 +30,7 @@ namespace SalesTax.Billing
         {
             double totalTax = 0.0;
 
-            productList.ForEach(p => totalTax +=  p.SalesTax * p.Quantity);
+            productList.ForEach(p => totalTax +=  p.PAttributes.SalesTax * p.PAttributes.Quantity);
 
             return Truncate(totalTax);
         }
@@ -39,7 +39,8 @@ namespace SalesTax.Billing
         {
             double totalAmount = 0.0;
 
-            prodList.ForEach(p => totalAmount += ((p.Price + p.SalesTax) * p.Quantity));
+            prodList.ForEach(p => totalAmount += 
+            ((p.PAttributes.Price + p.PAttributes.SalesTax) * p.PAttributes.Quantity));
 
             return Truncate(totalAmount);
         }

@@ -13,8 +13,8 @@ namespace SalesTax.Products
         }
 
         public FoodProduct(
-            string name, double price, int quantity, bool isImported) 
-            : base(name, price, quantity, isImported)
+            ProductAttributes productAttributes) 
+            : base(productAttributes)
         {
         }
 
