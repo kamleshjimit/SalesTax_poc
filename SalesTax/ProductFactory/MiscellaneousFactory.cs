@@ -1,5 +1,4 @@
-﻿using SalesTax.TaxCalculation;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using SalesTax.Products;

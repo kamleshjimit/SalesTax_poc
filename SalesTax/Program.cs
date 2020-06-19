@@ -1,5 +1,4 @@
 ﻿using System;
-using SalesTax.TaxCalculation;
 using SalesTax.Shopping;
 
 namespace SalesTax
