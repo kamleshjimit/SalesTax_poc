@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using SalesTax.TaxCalculation;
 using SalesTax.ProductFactories;
+using SalesTax.Billing;
 
 namespace SalesTax.Products
 {
@@ -13,8 +13,8 @@ namespace SalesTax.Products
         }
 
         public MedicalProduct(
-            string name, double price, int quantity, bool isImported) 
-            : base(name, price, quantity, isImported)
+            ProductAttributes productAttributes) 
+            : base(productAttributes)
         {
         }
 

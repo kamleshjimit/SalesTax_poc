@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SalesTax.TaxCalculation
+namespace SalesTax.Billing
 {
     public interface ITaxCalculator
     {

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using SalesTax.TaxCalculation;
 using SalesTax.ProductFactories;
+using SalesTax.Billing;
 
 namespace SalesTax.Products
 {
@@ -12,9 +12,8 @@ namespace SalesTax.Products
         {
         }
 
-        public MiscellaneousProduct(
-            string name, double price, int quantity, bool isImported) 
-            : base(name, price, quantity, isImported)
+        public MiscellaneousProduct(ProductAttributes productAttribute) 
+            : base(productAttribute)
         {
         }
 

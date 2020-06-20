@@ -7,42 +7,25 @@ namespace SalesTax.Products
 {
     public abstract class Product
     {
-        public string Name { get; set; }
+        public ProductAttributes PAttributes { get; set; }
 
-        public double Price { get; set; }
-
-        public int Quantity { get; set; }
-
-        public bool IsImported { get; set; }
-        
-        public double SalesTax { get; set; }
-
-      
         public Product()
         {
-            Name = string.Empty;
-            Price = 0;
-            Quantity = 1;
-            IsImported = true;
-            SalesTax = 0;
         }
 
-        public Product(
-            string name, double price, int quantity, bool isImported)
+        public Product(ProductAttributes pAttributes)
         {
-            Name = name;
-            Price = price;
-            Quantity = quantity;
-            IsImported = isImported;
+            PAttributes = pAttributes;
         }
 
         public override string ToString()
         {
-            double totalProductPrice = Price * Quantity + SalesTax;
-            return (Quantity + " " + ImportedToString(IsImported) + " " + Name + " : " + totalProductPrice);
+            double totalProductPrice = (PAttributes.Price + PAttributes.SalesTax ) * PAttributes.Quantity;
+            return (PAttributes.Quantity + " " + ImportedToString(PAttributes.IsImported) + " "
+                + PAttributes.Name + " : " + totalProductPrice);
         }
 
-        public String ImportedToString(bool imported)
+        public string ImportedToString(bool imported)
         {
             if (!imported)
                 return string.Empty;
