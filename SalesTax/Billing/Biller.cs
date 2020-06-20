@@ -7,9 +7,12 @@ using System.Threading.Tasks;
 
 namespace SalesTax.Billing
 {
+    /// <summary>
+    /// Biller class will calculate tax and bill amount.
+    /// </summary>
     public class Biller
     {
-        ITaxCalculator taxCalculator;
+        private ITaxCalculator taxCalculator;
 
         public Biller(ITaxCalculator taxCalc)
         {
@@ -23,6 +26,9 @@ namespace SalesTax.Billing
                 double productTax = taxCalculator.CalculateTax(
                     p.PAttributes.Price, p.PAttributes.IsImported, p.GetTaxValue());
                 p.PAttributes.SalesTax = Truncate(productTax);
+
+                double totalProductPrice = (p.PAttributes.Price + p.PAttributes.SalesTax) * p.PAttributes.Quantity;
+                p.PAttributes.TotalProductPrice = Truncate(totalProductPrice);
             }
         }
                 
@@ -39,8 +45,8 @@ namespace SalesTax.Billing
         {
             double totalAmount = 0.0;
 
-            prodList.ForEach(p => totalAmount += 
-            ((p.PAttributes.Price + p.PAttributes.SalesTax) * p.PAttributes.Quantity));
+            prodList.ForEach(p => totalAmount += p.PAttributes.TotalProductPrice);
+            //((p.PAttributes.Price + p.PAttributes.SalesTax) * p.PAttributes.Quantity));
 
             return Truncate(totalAmount);
         }

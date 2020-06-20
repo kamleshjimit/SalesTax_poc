@@ -20,9 +20,9 @@ namespace SalesTax.Products
 
         public override string ToString()
         {
-            double totalProductPrice = (PAttributes.Price + PAttributes.SalesTax ) * PAttributes.Quantity;
+            //double totalProductPrice = (PAttributes.Price + PAttributes.SalesTax) * PAttributes.Quantity;
             return (PAttributes.Quantity + " " + ImportedToString(PAttributes.IsImported) + " "
-                + PAttributes.Name + " : " + totalProductPrice);
+                + PAttributes.Name + " : " + PAttributes.TotalProductPrice);
         }
 
         public string ImportedToString(bool imported)
