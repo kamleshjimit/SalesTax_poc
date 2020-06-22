@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace SalesTax.Billing
 {
+    /// <summary>
+    /// Receipt will generate receipt based on product data.
+    /// </summary>
     public class Receipt
     {
         private List<Product> ProductList { get; set; }
@@ -27,17 +30,17 @@ namespace SalesTax.Billing
 
         public override string ToString()
         {
-            String receipt = "";
+            StringBuilder receipt = new StringBuilder();
             Console.WriteLine("***************");
             foreach (var p in ProductList)
             {
-                receipt += (p.ToString() + "\n");
+                receipt.Append((p.ToString() + "\n"));
             }
 
-            receipt += "Total sales tax : " + TotalSalesTax + "    ";
-            receipt += "Total amount : " + TotalAmount + "\n";
+            receipt.Append("Total sales tax : " + TotalSalesTax + "    ");
+            receipt.Append("Total amount : " + TotalAmount + "\n");
 
-            return receipt;
+            return receipt.ToString();
         }
     }
 }

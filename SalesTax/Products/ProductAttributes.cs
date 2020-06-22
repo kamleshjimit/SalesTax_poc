@@ -4,6 +4,9 @@ using System.Text;
 
 namespace SalesTax.Products
 {
+    /// <summary>
+    /// Product Attributes at once place, extent or change can be done very easyly.
+    /// </summary>
     public class ProductAttributes
     {
         public string Name { get; set; }
@@ -15,6 +18,8 @@ namespace SalesTax.Products
         public bool IsImported { get; set; }
 
         public double SalesTax { get; set; }
+
+        public double TotalProductPrice { get; set; }
 
         public ProductAttributes(string name, double price, int quantity, bool isImported)
         {

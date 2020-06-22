@@ -4,8 +4,13 @@ using System.Text;
 
 namespace SalesTax.Billing
 {
+    /// <summary>
+    /// Tax Caluclator calculate taxes on the given price and tax parameters.
+    /// </summary>
     public class TaxCalculator : ITaxCalculator
     {
+        private const double ROUND_OFF = 0.05;
+
         public double CalculateTax(
             double price, bool IsImported, double LocalTax)
         {
@@ -19,9 +24,7 @@ namespace SalesTax.Billing
             tax = RoundOff(tax); 
             return tax;
 
-        }
-
-        private const double ROUND_OFF = 0.05;
+        }       
 
         private double RoundOff(double value)
         {
